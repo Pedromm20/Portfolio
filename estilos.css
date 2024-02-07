@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;500&display=swap');
+
+/* Gestion de los colores de manera eficiente */
+:root {
+    --main-color: #BFB688;
+    --background-color: #070C0D;
+    --card-background: #070C0D;
+}
+
+/* Características Generales */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    color: var(--main-color);
+    width: 100%;
+    height: 100%;
+    background: var(--background-color);
+}
+
+/* Header (Logo) y Menú de navegación */
+.header-landing {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 20px; 
+}
+
+nav {
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    overflow: hidden;
+    color: var(--main-color);
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--main-color);
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Títulos y Secciones */
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--main-color);
+    text-decoration: none;
+
+}
+
+.aboutme-section, .main-section, .skills-section, .contact-section, .projects-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.aboutme-text, .skills-table, .form {
+    max-width: 90%;
+    margin: auto;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Tarjetas de Proyectos */
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: var(--card-background);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: calc(100% / 3 - 40px); /* Ajusta el ancho de las tarjetas */
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: var(--main-color);
+    text-align: center;
+}
+
+.card img {
+    width: 80%; 
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin-bottom: 8px;
+}
+
+/* Sección de Habilidades y Contacto */
+.card-skills {
+    width: 25%;
+    padding: 20px;
+    margin: 20px;
+}
+.contact-section {
+    width: calc(100% - 40px);
+    padding: 20px;
+    margin: 20px;
+}
+
+.skills-table td, .skills-table th {
+    padding: 8px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.form {
+    width: 50%;
+    max-width: 400px;
+    padding: 30px 35px;
+    background-color: var(--background-color);
+    border-radius: 25px;
+    box-shadow: 0 0 10px var(--main-color);
+    display: grid;
+    grid-column: 1;
+}
+
+.form label {
+    font-weight: bold;
+    color: var(--main-color);
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.form input,
+.form textarea {
+    border-radius: 15px;
+    margin-bottom: 10px;
+    background-color: #A68C08;
+    border: none;
+    color: var(--main-color);
+    outline: none;
+}
+
+.form textarea {
+    resize: vertical;
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+    color: var(--main-color);
+}
+
+.form .form-text a,
+.form .NT {
+    color: var(--main-color);
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.form .NT {
+    background-color: var(--main-color);
+    cursor: pointer;
+    border-radius: 10%;
+    border: 0;
+    color: #000000;
+    font-size: 20px;
+    box-shadow: 0 0 10px rgba(255, 246, 117, 0.236);
+}
+
+.form .NT:hover {
+    background-color: rgb(77, 70, 35);
+}
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr)); 
+    gap: 10px; 
+    justify-content: center; 
+    align-items: center; 
+    background-color: transparent;
+}
+
+footer img {
+    width: 40px;
+    padding: 10px;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 1064px) {
+    .card {
+        width: 90%; /* Ajustar el ancho de las tarjetas */
+        margin: 2.5%; 
+    }
+
+    .header-landing, .main-section {
+        padding: 10px;
+    }
+
+    .skills-section {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .contact-section {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    .aboutme-text, .skills-table, .form {
+        max-width: 100%;
+    }
+    /* Responsive Design para movil */
+@media only screen and (max-width: 600px) {
+    .card {
+        width: 90%; /* Ajustar el ancho de las tarjetas */
+        margin: 2.5%; 
+    }
+
+    .header-landing, .main-section {
+        padding: 10px;
+    }
+
+    .skills-section {
+        width: 40%;
+        padding: 10px;
+    }
+
+    .contact-section {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    .aboutme-text, .skills-table, .form {
+        max-width: 100%;
+    }
+}
+
+}
