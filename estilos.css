@@ -1,3 +1,71 @@
+/* The switch - the box around the slider */
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 62px;
+    height: 35px;
+    margin-right: 10px; /* Add some space between the switch and the button */
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    background: #fff;
+    transition: .4s;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1.9em;
+    width: 1.9em;
+    border-radius: 16px;
+    left: 1.2px;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+    box-shadow: 0 2px 5px #999999;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #5fdd54;
+    border: 1px solid transparent;
+}
+
+input:checked + .slider:before {
+    transform: translateX(1.5em);
+}
+
+/* Button styling for language toggle */
+.lang-button {
+    font-size: 17px;
+    padding: 7px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.lang-button:hover {
+    background-color: #e0e0e0;
+}
 /* Importar fuentes */
 @font-face {
     font-family: "Satoshi-Regular";
@@ -17,37 +85,7 @@
 }
 
 /* Definición de variables para temas */
-:root {
-    --background-color: #ffffff;
-    --text-color: #000000;
-    --highlight-color: #5c9ded;
-    --highlight-hover-color: #4a8bd5;
-    --highlight-active-color: #3a73b8;
-    --text-hover-color: #ffffff;
-    --text-active-color: #ffffff;
-    --card-background-light: #5c9ded;
-    --card-hover-background-light: #4a8bd5;
-    --card-text-color-light: #000000;
-    --input-background-color: #f2f2f2;
-    --box-shadow-hover: rgba(74, 139, 213, 0.5) 0px 2px 15px 0px;
-    --box-shadow-active: rgba(58, 115, 184, 0.5) 0px 7px 29px 0px;
-    --background-image: url('Imagenes/fondo-ondas-claro.svg');
 
-    --background-color-dark: #121212;
-    --text-color-dark: #ffffff;
-    --highlight-color-dark: #ffd700;
-    --highlight-hover-color-dark: #ffbf00;
-    --highlight-active-color-dark: #ffbf00;
-    --text-hover-color-dark: #000000;
-    --text-active-color-dark: #000000;
-    --card-background-dark: #ffd700; 
-    --card-hover-background-dark: #ffbf00; 
-    --card-text-color-dark: #000000;
-    --input-background-color-dark: #2a2a2a;
-    --box-shadow-hover-dark: rgba(255, 191, 0, 0.5) 0px 2px 15px 0px;
-    --box-shadow-active-dark: rgba(255, 191, 0, 0.5) 0px 7px 29px 0px;
-    --background-image-dark: url('Imagenes/fondo-ondas-oscuro.svg');
-}
 
 /* General styles */
 html {
@@ -60,8 +98,8 @@ body {
     background-color: var(--background-color);
     background-image: var(--background-image);
     color: var(--text-color);
-    margin: 0;
-    padding: 0;
+    margin: 100;
+    padding: 15;
     transition: background-color 0.5s, color 0.5s, background-image 0.5s;
 }
 /* Estilos para la sección con imagen de fondo */
@@ -398,13 +436,14 @@ footer {
     align-items: center;
 }
 
-footer img {
+footer svg {
     width: 40px;
-    padding: 10px;
-    transition: width 0.5s, height 0.5s;
+    height: 40px;
+    fill: var(--icon-color);
+    transition: fill 0.5s;
 }
 
-footer img:hover {
+footer svg:hover {
     width: 45px;
     height: 45px;
 }
@@ -417,6 +456,7 @@ footer img:hover {
     justify-content: center;
     gap: 5px;
 }
+
 
 .switch {
     font-size: 17px;
