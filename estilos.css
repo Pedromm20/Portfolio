@@ -102,12 +102,13 @@ body {
     padding: 15;
     transition: background-color 0.5s, color 0.5s, background-image 0.5s;
 }
+
 /* Estilos para la sección con imagen de fondo */
 .hero-section {
     background-image: url('Imagenes/background\ image.webp'); 
-    background-size: cover;
+    background-size: auto;
     background-position: center;
-    height: 100vh; 
+    height: 90vh; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -142,11 +143,28 @@ body {
 .hero-content p {
     font-size: 1.5rem; /* Tamaño del párrafo */
 }
+.aboutme-section {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
 
+}
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "Satoshi-Bold";
     color: var(--highlight-color);
+}
+h2 {
+    align-items: center;
+    text-align: center;
 }
 
 p, a, li, input, label, textarea, button {
@@ -190,6 +208,16 @@ header {
     align-items: center;
     padding: 10px 20px;
 }
+
+.navbar {
+    display: none;
+}
+
+.abrir-menu,
+.cerrar-menu {
+    display: none;
+}
+
 
 header nav ul {
     list-style: none;
@@ -266,7 +294,7 @@ header nav ul li a:hover {
     border-radius: 15px;
     cursor: pointer;
     transform: scale(1.05);
-    box-shadow: 0px 0px 15px 7px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--box-shadow-hover);
     background: var(--card-hover-background);
 }
 
@@ -286,6 +314,7 @@ header nav ul li a:hover {
 .card:hover .first-content {
     height: 0px;
     opacity: 0;
+    box-shadow: var(--box-shadow-hover);
 }
 
 .second-content {
@@ -342,12 +371,14 @@ header nav ul li a:hover {
     box-sizing: border-box;
     border-radius: 16px;
     transition: background-color 0.5s, border 0.5s, color 0.5s;
+    margin: auto;
 }
 
 .form-container .form {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    align-content: center;
 }
 
 .form-container .form-group {
@@ -511,7 +542,6 @@ input:checked + .slider:before {
 .sun, .moon {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
     width: 1.4em;
     height: 1.4em;
     transition: fill 0.5s;
@@ -563,33 +593,91 @@ input:checked ~ .moon {
     .aboutme-text, .skills-table, .form-container {
         max-width: 100%;
     }
+    
 }
 
-/* Responsive Design para móvil */
-@media only screen and (max-width: 600px) {
-    .card {
-        width: 90%;
-        margin: 2.5%;
+@media screen and (max-width: 600px) {
+    .abrir-menu,
+    .cerrar-menu {
+        display: block;
+        border: 0;
+        font-size: 1.25rem;
+        background-color: transparent;
+        cursor: pointer;
     }
 
-    .header-landing, .main-section {
-        padding: 10px;
+    .abrir-menu {
+        color: #1c1c1c;
+        position: fixed;
+        top: 10px;
+        left: 10px;
     }
 
-    .skills-section {
-        width: 40%;
-        padding: 10px;
+    .cerrar-menu {
+        color: #ececec;
+        position: absolute;
+        top: 10px;
+        right: 10px;
     }
 
-    .contact-section {
-        width: 100%;
-    }
-
-    nav ul {
+    .nav {
+        opacity: 0;
+        visibility: hidden;
+        display: flex;
         flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background-color: #1c1c1c;
+        padding: 2rem;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+        z-index: 1000;
     }
 
-    .aboutme-text, .skills-table, .form-container {
-        max-width: 100%;
+    .nav.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-list li a {
+        color: #ececec;
+    }
+    .hero-section {
+        height: 100vh;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 30px;
     }
 }
+
+@media only screen and (min-width: 601px) {
+    .navbar {
+        display: flex;
+    }
+
+    .menu-hamburguesa {
+        display: none;
+    }
+}
+
+.nav.visible {
+    display: flex;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+

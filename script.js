@@ -1,30 +1,30 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Cargar las traducciones
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.open('GET', 'translations.json', true);
     xhr.onload = function() {
         if (xhr.status === 200) {
-            var translations = JSON.parse(xhr.responseText);
+            let translations = JSON.parse(xhr.responseText);
             
             // Configuración inicial del idioma
-            var currentLang = 'es'; // Por defecto en español
+            let currentLang = 'es'; // Por defecto en español
 
             // Función para cambiar el idioma
             function changeLanguage(lang) {
                 currentLang = lang;
-                var elementsToTranslate = document.querySelectorAll('[data-translate]');
-                for (var i = 0; i < elementsToTranslate.length; i++) {
-                    var el = elementsToTranslate[i];
-                    var key = el.getAttribute('data-translate');
+                let elementsToTranslate = document.querySelectorAll('[data-translate]');
+                for (let i = 0; i < elementsToTranslate.length; i++) {
+                    let el = elementsToTranslate[i];
+                    let key = el.getAttribute('data-translate');
                     el.textContent = translations[lang][key];
                 }
                 document.getElementById('languageToggle').textContent = lang === 'es' ? 'EN' : 'ES';
             }
 
             // Evento para cambiar el idioma
-            var languageToggle = document.getElementById('languageToggle');
+            let languageToggle = document.getElementById('languageToggle');
             languageToggle.addEventListener('click', function() {
-                var lang = currentLang === 'es' ? 'en' : 'es';
+                let lang = currentLang === 'es' ? 'en' : 'es';
                 changeLanguage(lang);
             });
 
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
     xhr.send();
 
     // Definición de los temas
-    var themes = {
+    let themes = {
         "light": {
             "background-color": "#ffffff",
             "text-color": "#000000",
@@ -69,15 +69,16 @@ document.addEventListener("DOMContentLoaded", function() {
             "card-hover-background-dark": "#ffbf00",
             "card-text-color-dark": "#000000",
             "input-background-color-dark": "#2a2a2a",
-            "box-shadow-hover-dark": "rgba(255, 191, 0, 0.5) 0px 2px 15px 0px",
-            "box-shadow-active-dark": "rgba(255, 191, 0, 0.5) 0px 7px 29px 0px",
+            "box-shadow-hover-dark": "rgba(255, 255, 255, 0.9) 0px 2px 15px 0px",
+            "box-shadow-active-dark": "rgba(255, 255, 255, 0.9) 0px 7px 29px 0px",
             "icon-color": "#ffbf00"
         }
     };
+    
 
     // Función para aplicar el tema
     function applyTheme(theme) {
-        var themeData = themes[theme];
+        let themeData = themes[theme];
         for (var key in themeData) {
             document.documentElement.style.setProperty('--' + key, themeData[key]);
         }
@@ -85,15 +86,39 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Función para cambiar el tema
     function toggleTheme() {
-        var theme = themeToggle.checked ? 'dark' : 'light';
+        let theme = themeToggle.checked ? 'dark' : 'light';
         applyTheme(theme);
     }
 
     // Obtener el interruptor de tema
-    var themeToggle = document.getElementById('themeToggle');
+    let themeToggle = document.getElementById('themeToggle');
     themeToggle.addEventListener('change', toggleTheme);
 
     // Aplicar el tema inicial
-    var initialTheme = themeToggle.checked ? 'dark' : 'light';
+    let initialTheme = themeToggle.checked ? 'dark' : 'light';
     applyTheme(initialTheme);
+
+    var abrir = document.getElementById('abrir');
+    var cerrar = document.getElementById('cerrar');
+    var nav = document.getElementById('nav');
+
+    abrir.addEventListener('click', function () {
+        nav.classList.add('visible');
+        document.body.classList.add('menu-open');
+    });
+
+    cerrar.addEventListener('click', function () {
+        nav.classList.remove('visible');
+        document.body.classList.remove('menu-open');
+    });
+
+    // Cerrar el menú cuando se hace clic en un enlace
+    var navLinks = nav.getElementsByTagName('a');
+    for (var i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener('click', function () {
+            nav.classList.remove('visible');
+            document.body.classList.remove('menu-open');
+        });
+    }
 });
+

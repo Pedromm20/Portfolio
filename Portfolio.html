@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="estilos.css">
     <title>Pedro Mula Montesinos - Portfolio</title>
     <script src="script.js" defer></script>
@@ -11,27 +12,28 @@
     <div class="toggle-container">
         <label class="switch">
             <input type="checkbox" class="input" id="themeToggle">
-            <span class="slider">
-            </span>
+            <span class="slider"></span>
         </label>
         <button id="languageToggle" class="lang-button">EN</button>
     </div>
-    <section>
-        <header class="header-landing">
-            <nav class="navbar">
-                <ul>
-                    <li><a href="#portfolio" data-translate="projects">Proyectos</a></li>
-                    <li><a href="#skills" data-translate="skills">Habilidades</a></li>
-                    <li><a href="#contact" data-translate="contact">Formulario</a></li>
-                </ul>
-            </nav>
-        </header>
-    </section>
+
+    <header class="header-landing">
+        <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+        <nav class="nav" id="nav">
+            <button class="cerrar-menu" id="cerrar"><i class="bi bi-x"></i></button>
+            <ul class="nav-list">
+                <li><a href="#portfolio" data-translate="projects">Proyectos</a></li>
+                <li><a href="#skills" data-translate="skills">Habilidades</a></li>
+                <li><a href="#contact" data-translate="contact">Formulario</a></li>
+            </ul>
+        </nav>
+       
+    </header>
 
     <section class="hero-section">
         <div class="hero-content">
             <h1 data-translate="welcome">Bienvenido a mi Portfolio</h1>
-            <p><h1 data-translate="i_am">I am <br>Pedro Mula Montesinos</h1></p>
+            <p><h1 data-translate="i_am">Yo soy<br>Pedro Mula Montesinos</h1></p>
         </div>
     </section>
     <section class="main-section">
@@ -55,7 +57,7 @@
     </section>
 
     <section id="portfolio" class="projects-section">
-        <h1 data-translate="my_projects">Mis Proyectos</h1>
+        <h2 data-translate="my_projects">Mis Proyectos</h2>
         <div class="card-container">
             <div id="projectos" class="card">
                 <div class="first-content">
@@ -130,7 +132,7 @@
     </section>
 
     <section id="contact" class="contact-section">
-        <h1 data-translate="contact_us">Contáctenos</h1>
+        <h2 data-translate="contact_us">Contáctenos</h2>
         <div class="form-container">
             <form name="contactForm" action="contact.php" method="POST" onsubmit="return validateForm()" class="form">
                 <div class="form-group">
@@ -172,10 +174,11 @@
             </svg>
         </a>
         <a href="https://twitter.com/?lang=es" target="_blank">
-    <svg id="xLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M21.707 20.293l-8.486-8.486 8.486-8.486c.195-.195.293-.451.293-.707s-.098-.512-.293-.707l-1.414-1.414a1 1 0 0 0-1.414 0L12 9.586 3.515 1.1a1 1 0 0 0-1.414 0L.687 2.515a1 1 0 0 0 0 1.414L9.172 12 .687 20.485a1 1 0 0 0 0 1.414l1.414 1.414a1 1 0 0 0 1.414 0L12 14.414l8.486 8.486a1 1 0 0 0 1.414 0l1.414-1.414a1 1 0 0 0 0-1.414z"/>
-    </svg>
-</a>
+            <svg id="twitterLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#1DA1F2">
+                <path d="M23.953 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.897-.959-2.178-1.559-3.594-1.559-2.719 0-4.924 2.206-4.924 4.917 0 .39.045.765.127 1.124-4.09-.205-7.72-2.164-10.148-5.144-.425.729-.666 1.574-.666 2.475 0 1.71.87 3.214 2.188 4.099-.807-.026-1.566-.247-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.418-1.68 1.319-3.809 2.105-6.102 2.105-.395 0-.779-.023-1.158-.067 2.189 1.394 4.768 2.212 7.548 2.212 9.053 0 14.004-7.496 14.004-13.986 0-.21 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/>
+            </svg>
+        </a>
+        
 
         <a href="https://www.linkedin.com/in/pedro-mm-42798829b/" target="_blank">
             <svg id="linkedinLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
