@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Función para aplicar el tema
     function applyTheme(theme) {
         let themeData = themes[theme];
-        for (var key in themeData) {
+        for (let key in themeData) {
             document.documentElement.style.setProperty('--' + key, themeData[key]);
         }
     }
@@ -98,9 +98,9 @@ document.addEventListener("DOMContentLoaded", function() {
     let initialTheme = themeToggle.checked ? 'dark' : 'light';
     applyTheme(initialTheme);
 
-    var abrir = document.getElementById('abrir');
-    var cerrar = document.getElementById('cerrar');
-    var nav = document.getElementById('nav');
+    let abrir = document.getElementById('abrir');
+    let cerrar = document.getElementById('cerrar');
+    let nav = document.getElementById('nav');
 
     abrir.addEventListener('click', function () {
         nav.classList.add('visible');
@@ -113,8 +113,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Cerrar el menú cuando se hace clic en un enlace
-    var navLinks = nav.getElementsByTagName('a');
-    for (var i = 0; i < navLinks.length; i++) {
+    let navLinks = nav.getElementsByTagName('a');
+    for (let i = 0; i < navLinks.length; i++) {
         navLinks[i].addEventListener('click', function () {
             nav.classList.remove('visible');
             document.body.classList.remove('menu-open');
